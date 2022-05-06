@@ -1,0 +1,52 @@
+﻿@model IEnumerable<MyDBProject.Models.Bank>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="jumbotron">
+
+    <h1 >Bank</h1>
+</div>
+
+<p>
+    <a class = "btn btn-primary" asp-action="Create">Add Bank</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Bank Name
+            </th>
+            <th>
+                Branch Name
+            </th>
+            <th>
+                Bank IFSC
+            </th>
+            <th>
+                Actions
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bank_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Branch_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bank_IFSC)
+            </td>
+            <td>
+                <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Bank_id">Edit</a> |
+                <a class="btn btn-info" asp-action="Detaile" asp-route-id="@item.Bank_id">Details</a> |
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Bank_id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

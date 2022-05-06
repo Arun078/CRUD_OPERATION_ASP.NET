@@ -1,0 +1,44 @@
+﻿@model MyDBProject.Models.Bank
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit Bank</h1>
+
+@*<h4>Bank</h4>*@
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditDetail">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Bank_id" />
+            <div class="form-group">
+                <label  class="control-label">Bank Name</label>
+                <input asp-for="Bank_name" class="form-control" />
+                <span asp-validation-for="Bank_name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label  class="control-label">Branch Name</label>
+                <input asp-for="Branch_name" class="form-control" />
+                <span asp-validation-for="Branch_name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label  class="control-label">Bank IFSC</label>
+                <input asp-for="Bank_IFSC" class="form-control" />
+                <span asp-validation-for="Bank_IFSC" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Update" class="btn btn-primary" />|<a class="btn btn-secondary" asp-action="Index">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@*<div>
+    <a class="btn btn-primary" asp-action="Index">Back to List</a>
+</div>*@
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
